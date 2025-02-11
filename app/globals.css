@@ -364,13 +364,13 @@
 
 /* =====  CLERK OVERRIDES */
 .cl-userButtonBox {
-  display: flex;
-  flex-flow: row-reverse;
-  gap: 12px;
+  @apply flex flex-row-reverse
+}
+
+.cl-avatarBox {
+  @apply size-9 md:size-12
 }
 
 .cl-userButtonOuterIdentifier {
-  font-size: 16px;
-  font-weight: 600;
-  color: #384262;
+  @apply text-[16px] font-semibold text-[#384262]
 }
