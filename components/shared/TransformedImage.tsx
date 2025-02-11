@@ -26,7 +26,7 @@ const TransformedImage = ({ image, type, title, transformationConfig, isTransfor
         </h3>
 
         {hasDownload && (
-          <button 
+          <button
             className="download-btn" 
             onClick={downloadHandler}
           >
