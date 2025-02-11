@@ -13,17 +13,14 @@ export function cn(...inputs: ClassValue[]) {
 // ERROR HANDLER
 export const handleError = (error: unknown) => {
   if (error instanceof Error) {
-    // This is a native JavaScript error (e.g., TypeError, RangeError)
-    console.error(error.message);
-    throw new Error(`Error: ${error.message}`);
+    console.error("Error:", error.message);
+    return { success: false, message: error.message };
   } else if (typeof error === "string") {
-    // This is a string error message
-    console.error(error);
-    throw new Error(`Error: ${error}`);
+    console.error("Error:", error);
+    return { success: false, message: error };
   } else {
-    // This is an unknown type of error
-    console.error(error);
-    throw new Error(`Unknown error: ${JSON.stringify(error)}`);
+    console.error("Unknown error:", JSON.stringify(error));
+    return { success: false, message: "An unknown error occurred" };
   }
 };
 
