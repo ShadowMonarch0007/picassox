@@ -34,6 +34,7 @@ import { getCldImageUrl } from "next-cloudinary"
 import { addImage, updateImage } from "@/lib/actions/image.actions"
 import { useRouter } from "next/navigation"
 import { InsufficientCreditsModal } from "./InsufficientCreditsModal"
+import { Loader2 } from "lucide-react"
  
 export const formSchema = z.object({
   title: z.string(),
@@ -300,14 +301,14 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
             disabled={isTransforming || newTransformation === null}
             onClick={onTransformHandler}
           >
-            {isTransforming ? 'Transforming...' : 'Apply Transformation'}
+            {isTransforming ? <Loader2 className="!size-7 animate-spin"/> : 'Apply Transformation'}
           </Button>
           <Button 
             type="submit"
             className="submit-button capitalize"
             disabled={isSubmitting}
           >
-            {isSubmitting ? 'Submitting...' : 'Save Image'}
+            {isSubmitting ? <Loader2 className="!size-7 animate-spin"/> : 'Save Image'}
           </Button>
         </div>
       </form>
