@@ -5,6 +5,7 @@ import { CldImage, getCldImageUrl } from 'next-cloudinary'
 import { PlaceholderValue } from 'next/dist/shared/lib/get-img-props'
 import Image from 'next/image'
 import React from 'react'
+import { Button } from '../ui/button'
 
 const TransformedImage = ({ image, type, title, transformationConfig, isTransforming, setIsTransforming, hasDownload = false }: TransformedImageProps) => {
   const downloadHandler = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -26,7 +27,7 @@ const TransformedImage = ({ image, type, title, transformationConfig, isTransfor
         </h3>
 
         {hasDownload && (
-          <button
+          <Button
             className="download-btn" 
             onClick={downloadHandler}
           >
@@ -37,7 +38,7 @@ const TransformedImage = ({ image, type, title, transformationConfig, isTransfor
               height={24}
               className="pb-[6px]"
             />
-          </button>
+          </Button>
         )}
       </div>
 
