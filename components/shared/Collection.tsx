@@ -34,7 +34,6 @@ export const Collection = ({ hasSearch = false, images, totalPages = 1, page, }:
         <h2 className="h2-bold text-dark-600">Recent Edits</h2>
         {hasSearch && <Search />}
       </div>
-
       {images.length > 0 ? (
         <ul className="collection-list">
           {images.map((image) => (
@@ -53,11 +52,9 @@ export const Collection = ({ hasSearch = false, images, totalPages = 1, page, }:
             <Button disabled={Number(page) <= 1} className="collection-btn" onClick={() => onPageChange("prev")}>
               <PaginationPrevious className="hover:bg-transparent hover:text-white" />
             </Button>
-
             <p className="flex-center p-16-medium w-fit flex-1">
               {page} / {totalPages}
             </p>
-
             <Button className="button w-32 bg-purple-gradient bg-cover text-white" onClick={() => onPageChange("next")} disabled={Number(page) >= totalPages}>
               <PaginationNext className="hover:bg-transparent hover:text-white" />
             </Button>
@@ -72,7 +69,7 @@ const Card = ({ image }: { image: IImage }) => {
   return (
     <li>
       <Link href={`/transformations/${image._id}`} className="collection-card">
-        <CldImage src={image.publicId} alt={image.title} width={image.width} height={image.height}          {...image.config} loading="lazy" className="h-52 w-full rounded-[10px] object-cover" sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw" />
+        <CldImage src={image.publicId} alt={image.title} width={image.width} height={image.height} {...image.config} loading="lazy" className="h-52 w-full rounded-[10px] object-cover" sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div className="flex-between">
           <p className="p-20-semibold mr-3 line-clamp-1 text-dark-600">
             {image.title}
